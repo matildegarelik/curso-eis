@@ -1,9 +1,14 @@
 #include <iostream>
 
+#include <stdexcept>
+
 using namespace std;
 
 int fibonacci(int n)
 {
+    if (n>50)
+        throw invalid_argument("Ingrese un valor mas chico");
+
     if (n == 0)
     {
         return 0;
@@ -20,5 +25,15 @@ int fibonacci(int n)
 
 int main()
 {
-    cout<<"El termino 15 de la serie de fibonacci es: "<<fibonacci(15)<<endl;
+    int termino;
+    cout<<"ingrese un termino: ";
+    cin>>termino;
+    try{
+        cout<<"El termino 15 de la serie de fibonacci es: "<<fibonacci(termino)<<endl;
+    }
+    catch (exception &e)
+    {
+        cout<<"Error!" <<e.what() <<endl;
+    }
+    return 0 ;
 }

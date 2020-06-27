@@ -15,26 +15,32 @@ float mySqrt(float x)
 
 float division(float x, float y)
 {
-    if(y==0)
+    if (y == 0)
     {
         throw invalid_argument("No podes dividir por cero.");
     }
-    return x/y;
+    return x / y;
 }
 
 int main()
 {
     float x;
     cout << "Ingrese el numero cuya raiz quiere calcular" << endl;
-    cin >> x;
-    try
+    int raizCalculada = 0;
+
+    while (raizCalculada == 0)
     {
-        float raizX = mySqrt(x);
-        cout << raizX << endl;
-    }
-    catch (exception &e)
-    {
-        cout << "Error! " << e.what() << endl;
+        cin >> x;
+        try
+        {
+            float raizX = mySqrt(x);
+            raizCalculada = 1;
+            cout << raizX << endl;
+        }
+        catch (exception &e)
+        {
+            cout << "Error! " << e.what() << endl;
+        }
     }
     return 0;
 }

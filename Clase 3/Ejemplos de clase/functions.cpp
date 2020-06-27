@@ -1,35 +1,67 @@
 #include <iostream>
+#include <cmath>
+#include <stdexcept>
 
 using namespace std;
 
-int esPrimo(int N);
+float areaDelNucleo(float potencia, float rendimiento, string regimen, int frecuencia, string material);
 
 int main()
 {
+    float area_nucleo;
+    float potencia, rendimiento;
+    int frecuencia;
+    string material, regimen;
 
-    int M;
-    cout << "Ingrese el número hasta el cual desea encontrar los primos." << endl;
+    cout << "Ingrese la potencia: ";
+    cin >> potencia;
 
-    cin >> M;
+    cout << "Ingrese la frecuencia: ";
+    cin >> frecuencia;
 
-    for (int i = 0; i < M; i++)
+    cout << "Ingrese el rendimiento: ";
+    cin >> rendimiento;
+
+    cout << "Ingrese el material (acero - acsi)";
+    cin >> material;
+
+    cout << "Ingrese el regimen (continuo - intermitente)";
+    cin >> regimen;
+    try
     {
-        if (esPrimo(i))
-        {
-            cout << i << " es primo." << endl;
-        }
+        area_nucleo = areaDelNucleo(potencia, rendimiento, regimen, frecuencia, material);
+        cout << area_nucleo << endl;
     }
+    catch (exception &e)
+    {
+        cout << "Error! " << e.what() << endl;
+    }
+    
     return 0;
 }
 
-int esPrimo(int N)
+float areaDelNucleo(float potencia, float rendimiento, string regimen, int frecuencia, string material)
 {
-    for (int i = 0; i < N; i++)
+
+    float potencia_primario = potencia / rendimiento;
+    float densidad_corriente, bmax;
+
+    if (regimen != "continuo" && regimen != "intermitente")
     {
-        if (N % i == 0)
-        {
-            return 0;
-        }
+        throw invalid_argument("El regimen es inexistente");
     }
-    return 1;
+
+    if (regimen == "continuo")
+        densidad_corriente = 2.;
+    else
+        densidad_corriente = 4.;
+
+    if (material == "acero")
+        bmax = 8.;
+    else if (material == "acsi")
+        bmax = 10.;
+    else
+        bmax = 12.;
+
+    return 36.42 * sqrt(potencia / (densidad_corriente * frecuencia * bmax));
 }

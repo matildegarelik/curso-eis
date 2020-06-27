@@ -5,7 +5,11 @@ using namespace std;
 void hanoi (int n, int from, int to, int aux);
 
 int main() {
-    hanoi(5,1,3,2);
+    int n;
+    cout << "Ingrese el numero de discos: "<<endl;
+    cin >> n;
+    
+    hanoi(n,1,3,2);
     return 0;
 }
 
