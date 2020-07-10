@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 
+template <class T_vector, class T_num>
 class vector3D
 {
 private:
@@ -60,11 +60,12 @@ public:
     }
 };
 
-class vector2D : public vector3D  //Los dos puntos hacen que herede
+class sistema
 {
-    public:
-        vector2D(float x_const, float y_const) : vector3D(x_const, y_const, 0) {};
-};
+    private:
+        vector3D fuerzas [50];
+        vector3D 
+}
 
 int main()
 {

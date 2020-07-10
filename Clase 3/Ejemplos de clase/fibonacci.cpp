@@ -29,7 +29,7 @@ int main()
     cout<<"ingrese un termino: ";
     cin>>termino;
     try{
-        cout<<"El termino 15 de la serie de fibonacci es: "<<fibonacci(termino)<<endl;
+        cout<<"El termino "<<termino<<" de la secuencia de fibonacci es: "<<fibonacci(termino)<<endl;
     }
     catch (exception &e)
     {

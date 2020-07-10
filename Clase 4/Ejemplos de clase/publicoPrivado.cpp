@@ -24,7 +24,7 @@ int main()
 
     vector2D v;
 
-    v.setValues(3.0, 4.0)
+    v.setValues(3.0, 4.0);
 
     cout << v.calculaModulo() << endl;
 
