@@ -2,6 +2,8 @@
 
 Dentro de este repositorio encontrará, ordenadas por clase, las notas, ejercicios y resoluciones de cada uno de los temas a tratar.
 
+Las grabaciones están en: https://drive.google.com/drive/folders/1GNEGgMpnk8-J4-5NmHoC2fiV6-i5mLES?usp=sharing
+
 #### Materiales
 
 * Visual Studio Code:  https://code.visualstudio.com/
